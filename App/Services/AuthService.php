@@ -2,21 +2,21 @@
 
 namespace App\Service;
 
-use App\Repository\UserRepository;
+use App\Repository\AuthRepository ;
 use App\Util\JwtHandler;
 use Exception;
 
 class AuthService
 {
-    private UserRepository $userRepository;
-    private JwtHandler $jwtHandler;
+    private  $authRepository;
+    private  $jwtHandler;
     private string $jwtSecret;
     private string $jwtAlgo;
     private int $jwtExpiry;
 
-    public function __construct(UserRepository $userRepository, JwtHandler $jwtHandler, array $config)
+    public function __construct(AuthRepository $authRepository, JwtHandler $jwtHandler, array $config)
     {
-        $this->userRepository = $userRepository;
+        $this->authRepository = $authRepository;
         $this->jwtHandler = $jwtHandler;
         $this->jwtSecret = $config['jwt_secret'] ?? 'seu_super_secreto_default';
         $this->jwtAlgo = $config['jwt_algo'] ?? 'HS256';
@@ -25,7 +25,7 @@ class AuthService
 
     public function authenticateAndGenerateToken(string $email, string $password): string|false
     {
-        $user = $this->userRepository->findByEmail($email);
+        $user = $this->authRepository->findByEmail($email);
 
         if (!$user || !password_verify($password, $user['senha'])) {
             return false;
@@ -72,7 +72,7 @@ class AuthService
             return ['success' => false, 'errors' => $errors];
         }
         try {
-            $this->userRepository->create($nome, $email, password_hash($password, PASSWORD_DEFAULT));
+            $this->authRepository->create($nome, $email, password_hash($password, PASSWORD_DEFAULT));
 
             http_response_code(201);
             return ['success' => true, 'message' => 'Usuário cadastrado com sucesso.'];
@@ -84,4 +84,3 @@ class AuthService
     }
 
 }
-

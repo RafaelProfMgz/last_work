@@ -13,13 +13,11 @@ class UserRepository
         $this->pdo = $pdo;
     }
 
-    public function findByEmail(string $email): array|false
-    {
-        $stmt = $this->pdo->prepare("SELECT id, nome, senha FROM users WHERE email = ?");
-        $stmt->execute([$email]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function findAll(): array
+        {
+            $stmt = $this->pdo->query("SELECT id, nome, email FROM users");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
     public function findById(int $id): array|false
     {
         $stmt = $this->pdo->prepare("SELECT id, nome, email FROM users WHERE id = ?");
@@ -52,3 +50,5 @@ class UserRepository
     }
 
 }
+
+?>

@@ -1,27 +1,33 @@
 <?php
 
-use App\Controller\EntradaController;
-use App\Controller\SaidaController;
+use App\Controller\EntryController;
+use App\Controller\ExpensesController;
 use App\Controller\UserController;
 use App\Controller\AuthController;
 
-$router->addRoute('GET', '/entradas', [EntradaController::class, 'list']);
-$router->addRoute('POST', '/entradas', [EntradaController::class, 'create']);
-$router->addRoute('GET', '/entradas/{id}', [EntradaController::class, 'read']);
-$router->addRoute('PUT', '/entradas/{id}', [EntradaController::class, 'update']);
-$router->addRoute('DELETE', '/entradas/{id}', [EntradaController::class, 'delete']);
+$router->addRoute('GET', '/entradas', [EntryController::class, 'findAll']);
+$router->addRoute('POST', '/entradas', [EntryController::class, 'create']);
+$router->addRoute('GET', '/entradas/{id}', [EntryController::class, 'findOne']);
+$router->addRoute('PUT', '/entradas/{id}', [EntryController::class, 'update']);
+$router->addRoute('DELETE', '/entradas/{id}', [EntryController::class, 'delete']);
+$router->addRoute('DELETE', '/entradas', [EntryController::class, 'deleteMany']);
+$router->addRoute('PUT', '/entradas', [EntryController::class, 'updateMany']);
+$router->addRoute('POST', '/entradas/many', [EntryController::class, 'createMany']);
 
-$router->addRoute('GET', '/saidas', [SaidaController::class, 'list']);
-$router->addRoute('POST', '/saidas', [SaidaController::class, 'create']);
-$router->addRoute('GET', '/saidas/{id}', [SaidaController::class, 'read']);
-$router->addRoute('PUT', '/saidas/{id}', [SaidaController::class, 'update']);
-$router->addRoute('DELETE', '/saidas/{id}', [SaidaController::class, 'delete']);
+$router->addRoute('GET', '/saidas', [ExpensesController::class, 'list']);
+$router->addRoute('POST', '/saidas', [ExpensesController::class, 'create']);
+$router->addRoute('GET', '/saidas/{id}', [ExpensesController::class, 'read']);
+$router->addRoute('PUT', '/saidas/{id}', [ExpensesController::class, 'update']);
+$router->addRoute('DELETE', '/saidas/{id}', [ExpensesController::class, 'delete']);
 
 $router->addRoute('POST', '/users', [UserController::class, 'create']);
-$router->addRoute('GET', '/users', [UserController::class, 'list']);
-$router->addRoute('GET', '/users/{id}', [UserController::class, 'read']);
+$router->addRoute('GET', '/users', [UserController::class, 'findAll']);
+$router->addRoute('GET', '/users/{id}', [UserController::class, 'findOne']);
 $router->addRoute('PUT', '/users/{id}', [UserController::class, 'update']);
 $router->addRoute('DELETE', '/users/{id}', [UserController::class, 'delete']);
+$router->addRoute('DELETE', '/users', [UserController::class, 'deleteMany']);
+$router->addRoute('PUT', '/users', [UserController::class, 'updateMany']);
+$router->addRoute('POST', '/users/many', [UserController::class, 'createMany']);
 
 $router->addRoute('POST', '/register', [AuthController::class, 'register']);
 $router->addRoute('POST', '/login', [AuthController::class, 'login']);

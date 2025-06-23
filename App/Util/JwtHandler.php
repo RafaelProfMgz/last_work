@@ -22,3 +22,4 @@ class JwtHandler
         return JWT::decode($token, $key);
     }
 }
+?>
