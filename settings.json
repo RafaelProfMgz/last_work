@@ -1,0 +1,5 @@
+"phpfmt.executablePath": "C:\\caminho\\para\\pretty-php.phar",
+"[php]": {
+  "editor.defaultFormatter": "lkrms.pretty-php"
+},
+"editor.formatOnSave": true
