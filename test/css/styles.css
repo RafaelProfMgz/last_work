@@ -82,69 +82,36 @@ button:hover {
 
 .dashboard-container {
   max-width: 1200px;
-  width: 100%;
-  margin: 20px auto;
-  background-color: #fff;
+  margin: 0 auto;
+  background: #fff;
   padding: 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  overflow-x: auto;
-}
-
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
-
-  .dashboard-container {
-    padding: 15px;
-    margin: 10px auto;
-  }
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-title {
   text-align: center;
-  color: #2c3e50;
-  margin-bottom: 30px;
-  font-size: 2.2em;
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .dashboard-title {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-  }
+  color: #5cb85c;
+  margin-bottom: 20px;
 }
 
 .dashboard-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  min-width: 600px;
 }
 
-.dashboard-table thead th {
-  background-color: #3498db;
+.dashboard-table th,
+.dashboard-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.dashboard-table th {
+  background-color: #5cb85c;
   color: white;
   font-weight: bold;
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 2px solid #2980b9;
-}
-
-.dashboard-table tbody td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  vertical-align: top;
-}
-
-@media (max-width: 768px) {
-  .dashboard-table th,
-  .dashboard-table td {
-    padding: 8px 10px;
-  }
 }
 
 .dashboard-table tbody tr:nth-child(even) {
@@ -156,7 +123,7 @@ button:hover {
 }
 
 .dashboard-link {
-  color: #3498db;
+  color: #0275d8;
   text-decoration: none;
 }
 
@@ -164,54 +131,52 @@ button:hover {
   text-decoration: underline;
 }
 
-.dashboard-table td pre {
-  margin: 0;
-  padding: 10px;
-  background-color: #ecf0f1;
-  border: 1px solid #bdc3c7;
-  border-radius: 4px;
+pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   max-height: 200px;
   overflow-y: auto;
-  font-size: 0.9em;
-  color: #555;
-}
-
-.dashboard-table td[class^="status-"] {
-  font-weight: bold;
-  text-align: center;
-  padding: 8px 12px;
+  background-color: #eee;
+  padding: 5px;
   border-radius: 4px;
-  display: inline-block;
-  min-width: 80px;
-  margin: 2px 0;
 }
 
 .status-200 {
-  background-color: #d4edda;
-  color: #155724;
+  color: #5cb85c;
+  font-weight: bold;
 }
 
-.status-400,
-.status-404,
-.status-other {
-  background-color: #fff3cd;
-  color: #856404;
+.status-400 {
+  color: #f0ad4e;
+  font-weight: bold;
 }
 
-.status-401,
+.status-401 {
+  color: #d9534f;
+  font-weight: bold;
+}
+
 .status-403 {
-  background-color: #f8d7da;
-  color: #721c24;
+  color: #d9534f;
+  font-weight: bold;
+}
+
+.status-404 {
+  color: #d9534f;
+  font-weight: bold;
 }
 
 .status-500 {
-  background-color: #dc3545;
-  color: #fff;
+  color: #d9534f;
+  font-weight: bold;
+}
+
+.status-other {
+  color: #777;
+  font-weight: bold;
 }
 
 .status-error {
-  background-color: #e2e3e5;
-  color: #383d41;
+  color: #d9534f;
+  font-weight: bold;
 }

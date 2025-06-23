@@ -54,3 +54,5 @@ class ExpensesService
         $this->expensesRepository->createMany($data);
     }
 }
+
+?>

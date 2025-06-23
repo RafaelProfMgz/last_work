@@ -57,3 +57,5 @@ class EntryService
         $this->entryRepository->createMany($data);
     }
 }
+
+?>
