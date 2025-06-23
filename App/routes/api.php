@@ -14,11 +14,14 @@ $router->addRoute('DELETE', '/entradas', [EntryController::class, 'deleteMany'])
 $router->addRoute('PUT', '/entradas', [EntryController::class, 'updateMany']);
 $router->addRoute('POST', '/entradas/many', [EntryController::class, 'createMany']);
 
-$router->addRoute('GET', '/saidas', [ExpensesController::class, 'list']);
-$router->addRoute('POST', '/saidas', [ExpensesController::class, 'create']);
-$router->addRoute('GET', '/saidas/{id}', [ExpensesController::class, 'read']);
-$router->addRoute('PUT', '/saidas/{id}', [ExpensesController::class, 'update']);
-$router->addRoute('DELETE', '/saidas/{id}', [ExpensesController::class, 'delete']);
+$router->addRoute('GET', '/despesas', [ExpensesController::class, 'findAll']);
+$router->addRoute('POST', '/despesas', [ExpensesController::class, 'create']);
+$router->addRoute('GET', '/despesas/{id}', [ExpensesController::class, 'findOne']);
+$router->addRoute('PUT', '/despesas/{id}', [ExpensesController::class, 'update']);
+$router->addRoute('DELETE', '/despesas/{id}', [ExpensesController::class, 'delete']);
+$router->addRoute('DELETE', '/despesas', [ExpensesController::class, 'deleteMany']);
+$router->addRoute('PUT', '/despesas', [ExpensesController::class, 'updateMany']);
+$router->addRoute('POST', '/despesas/many', [ExpensesController::class, 'createMany']);
 
 $router->addRoute('POST', '/users', [UserController::class, 'create']);
 $router->addRoute('GET', '/users', [UserController::class, 'findAll']);
