@@ -6,9 +6,6 @@ use App\Controller\UserController;
 use App\Controller\AuthController;
 
 
-
-$router = new Router();
-
 $router->addRoute('GET', '/entradas', [EntryController::class, 'findAll']);
 $router->addRoute('POST', '/entradas', [EntryController::class, 'create']);
 $router->addRoute('GET', '/entradas/{id}', [EntryController::class, 'findOne']);
@@ -38,7 +35,6 @@ $router->addRoute('POST', '/users/many', [UserController::class, 'createMany']);
 
 $router->addRoute('POST', '/register', [AuthController::class, 'register']);
 $router->addRoute('POST', '/login', [AuthController::class, 'login']);
-$router->addRoute('POST', '/logout', [AuthController::class, 'logout']);
 
 
 

@@ -26,7 +26,7 @@
 
       const email = form.email.value;
       const senha = form.senha.value;
-      const response = await fetch('/lastwork/backend/api/login.php', {
+      const response = await fetch('/lastwork/backend/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })

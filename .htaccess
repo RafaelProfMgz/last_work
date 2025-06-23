@@ -1,0 +1,16 @@
+# D:\xamp\htdocs\lastwork\backend\.htaccess
+
+RewriteEngine On
+# Define a base URL para as regras de reescrita. AJUSTE conforme seu subdiretório!
+# Se seu projeto está em http://localhost/lastwork/backend/
+RewriteBase /lastwork/backend/
+
+# Redirecionar todas as requisições que NÃO são para arquivos ou diretórios existentes
+# para o index.php. O caminho após o index.php é passado como parte da URI.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+# Opção para remover a necessidade de /index.php/ na URL,
+# se a regra acima não for suficiente dependendo da sua configuração Apache
+# RewriteRule ^index.php/(.*)$ $1 [L]
